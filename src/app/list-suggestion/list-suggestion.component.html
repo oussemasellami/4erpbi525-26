@@ -1,0 +1,29 @@
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Recherche</span>
+  </div>
+  <input type="text" aria-label="First name" class="form-control"
+  [(ngModel)]="search">
+
+</div>
+
+
+
+<div class="row">
+    <div class="card m-3" style="width: 18rem;"
+ *ngFor="let s of searchbytitle() ">
+ 
+  <div class="card-body">
+    <h5 class="card-title">{{s.title}}</h5>
+    <p class="card-text">{{s.description}}</p>
+    <p class="card-text">{{s.date}}</p>
+    <p class="card-text">{{s.status}}</p>
+    <p class="card-text">{{s.nbLikes}}</p>
+  <div *ngIf="s.status=='acceptee' || s.status=='en_attente'">
+    <button class="btn btn-success" (click)="like(s)">Like</button>
+    <button class="btn btn-danger" (click)="ajouter(s)">Ajouter aux favorie</button>
+     </div>
+  </div>
+</div>
+</div>
